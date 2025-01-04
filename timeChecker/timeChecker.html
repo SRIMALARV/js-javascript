@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Open Status</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Check Company Open Status</h1>
+    <label for="country">Select your country:</label>
+    <select id="country">
+      <option value="India" user-offset="5.5">India</option>
+      <option value="USA" user-offset="-5">USA</option>
+      <option value="UK" user-offset="0">UK</option>
+      <option value="Australia" user-offset="11">Australia</option>
+      <option value="Japan" user-offset="9">Japan</option>
+      <option value="Germany" user-offset="1">Germany</option>
+      <option value="Brazil" user-offset="-3">Brazil</option>
+      <option value="South Africa" user-offset="2">South Africa</option>
+      <option value="Canada" user-offset="-5">Canada</option>
+      <option value="Russia" user-offset="3">Russia</option>
+    </select>
+    <button id="checkStatus">Check Status</button>
+
+    <h2>Results:</h2>
+    <ul id="results"></ul>
+  </div>
+  <ul id="results"></ul>
+  <script src="script.js"></script>
+</body>
+</html>

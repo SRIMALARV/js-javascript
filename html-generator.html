@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Generation using Dom</title>
+    <style>
+        .output-container {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Dynamic HTML Generator</h2>
+
+    <textarea id="arrayInput" rows="10" cols="50" placeholder="Enter an array of objects here"></textarea>
+    <br>
+    <button id="generateButton">Generate HTML</button>
+    <div id="output" class="output-container"></div>
+
+    <script>
+        function generateHTML(elements, target) {
+            elements.forEach(element => {
+                const elmt = document.createElement(element.tag);
+                if (element.attributes) {
+                    for (let attr in element.attributes) {
+                        elmt.setAttribute(attr, element.attributes[attr]);
+                    }
+                }
+                if (element.textContent) {
+                    elmt.textContent = element.textContent;
+                }
+                if (element.children) {
+                    generateHTML(element.children, elmt);
+                }
+                target.appendChild(elmt);
+            });
+        }
+
+        document.getElementById("generateButton").addEventListener("click", () => {
+            const input = document.getElementById("arrayInput").value;
+
+            try {
+                const htmlStruct = JSON.parse(input);
+
+                const outputContainer = document.getElementById("output");
+                outputContainer.innerHTML = "";
+
+                generateHTML(htmlStruct, outputContainer);
+            } catch (error) {
+                alert("Invalid input! Please enter a valid JSON.");
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Validation</title>
+    <style>
+        label, input, p {
+            display: block;
+            margin: 15px 15px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="name">1. Enter your name:</label>
+        <input type="text" id="name" placeholder="Only 20 characters allowed">
+        <p id="error-alphabet" style="color: red; display: none;">Only alphabets are allowed!</p>
+        <p id="error-len" style="color: red; display: none;">Only 20 characters allowed!</p>
+        <p id="error-space" style="color: red; display: none;">Spacing is not allowed in the beginning</p>
+        <p id="error-spacing" style="color: red; display: none;">Not a valid spacing!</p>
+
+        <label for="lname">2. Enter name:(only alphabets)</label>
+        <input type="text" id="lname" placeholder="Only alphabets allowed">
+        <p id="error-letters" style="color: red; display: none;">Only alphabets are allowed!</p>
+
+        <label for="number">3. Enter a positive number (max 2 decimals):</label>
+        <input type="text" id="number" placeholder="Enter a number">
+        <p id="error-decimal" style="color: red; display: none;">Only 2 digits after decimal points are allowed!</p>
+        <p id="error-number" style="color: red; display: none;">Not a Valid number!</p>
+
+        <label for="username">4. Enter Username(alphabets & numbers):</label>
+        <input type="text" id="username" placeholder="Enter username">
+        <p id="error-user" style="color: red; display: none;">Only numbers & alphabets are allowed!</p>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>

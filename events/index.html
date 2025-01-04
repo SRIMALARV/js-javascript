@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">ShopEase</div>
+            <input id="searchBar" type="text" placeholder="Search products..." />
+            <button id="searchButton">Search</button>
+        </nav>
+    </header>
+    <main>
+        <section class="banner">
+            <h1 ondblclick="displayText()">Welcome to ShopEase!</h1>
+            <p id="samp"></p>
+        </section>
+
+        <section id="products" class="products">
+            <h2>Featured Products</h2>
+            <div class="product" id="product1">
+                <img src="lap.jpg" alt="Laptop">
+                <p>Laptop<br>₹60000</p>
+                <button class="addToCart">Add to Cart</button>
+            </div>
+            <div class="product" id="product2">
+                <img src="sp1.avif" alt="Smartphone">
+                <p>Smartphone <br>₹45000</p>
+                <button class="addToCart">Add to Cart</button>
+            </div>
+            <div class="product" id="product2">
+                <img src="sp2.jpg" alt="Smartphone">
+                <p>Smartphone<br>₹20000</p>
+                <button class="addToCart">Add to Cart</button>
+            </div>
+        </section>
+        <section id="feedbackSection">
+            <h2 style="margin-left: 90px;">Feedback Section</h2>
+            <form id="feedbackForm">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" onfocusout="toCapital()" onfocus="focusFunction()" onblur="blurFunction()">
+                <br><br>
+                <label for="comments">Your Comments:</label>
+                <textarea id="comments" onfocus="focusFunction()" onblur="blurFunction()"></textarea>
+                <br><br>
+                <button type="submit" id="feedbackButton">Submit Feedback</button>
+            </form>
+            <p id="feedbackMessage"></p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
