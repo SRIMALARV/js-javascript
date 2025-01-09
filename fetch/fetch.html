@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        fetch('https://jsonplaceholder.ypicode.com/todos/1')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Data:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                console.log('Final step');
+            });
+
+        // async function fetchData() {
+        //     try {
+        //         let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        //         let data = await response.json();
+        //         console.log('Data:', data);
+        //     } catch (error) {
+        //         console.error('Error:', error);
+        //     }
+        // }
+        // fetchData();
+
+        //
+        // let demoPromise = new Promise((resolve, reject) => {
+        //     fetch('https://jsonplaceholder.typicode.com/todos/1')
+        //         .then(response => {
+        //             return response.json();
+        //         })
+        //         .then(data => {
+        //             resolve(data);
+        //         })
+        //         .catch(error => {
+        //             reject(error);
+        //         });
+        // });
+        // demoPromise
+        //     .then((data) => {
+        //         console.log('Data received:', data);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error occurred:', error);
+        //     });
+
+        const promise1 = Promise.resolve('Task 1');
+        const promise2 = Promise.reject('Task 2');
+        const promise3 = Promise.resolve('Task 3');
+
+        Promise.all([promise1, promise2, promise3])
+            .then(results => {
+                console.log('All promises resolved:', results);
+            })
+            .catch(error => {
+                console.error('One of the promises failed:', error);
+            });
+
+    </script>
+</body>
+
+</html>

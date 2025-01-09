@@ -1,117 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Array Methods</title>
 </head>
+
 <body>
     <script>
+        //shift, unshift, slice, splice, pop, push, sort, reverse, some, every
+
+
         //1. remove duplicate numbers in array (indexOf, push)
-        let nums = [1, 3, 4, 3, 2, 4];
-        let unique = [];
-        for (let i = 0; i < nums.length; i++) {
-            let isUnique = true;
-            for (let j = 0; j < unique.length; j++) {
-                if (nums[i] === unique[j]) {
-                    isUnique = false;
-                    break;
-                }
-            }
-             if (isUnique) {
-              unique[unique.length] = nums[i];
-            }
-        }
-        // for(let num =0;num< nums.length; num++) {
-        //  if (unique.indexOf(num) === -1) 
-        //     unique.push(num);
+         let nums = [1, 3, 4, 3, 2, 4];
+         let unique = [];
+        // for (let i = 0; i < nums.length; i++) {
+        //     let isUnique = true;
+        //     for (let j = 0; j < unique.length; j++) {
+        //         if (nums[i] === unique[j]) {
+        //             isUnique = false;
+        //             break;
+        //         }
+        //     }
+        //      if (isUnique) {
+        //       unique[unique.length] = nums[i];
+        //     }
         // }
-        console.log("1. Unique elements: ",unique); 
+        for (let num = 0; num < nums.length; num++) {
+            if (unique.indexOf(num) === -1)
+                unique.push(num);
+        }
+        console.log("1. Unique elements: ", unique);
         // indexOf(2,3); -->                               //push(14, 17,..);
         // 1. required -  search element(any DT)           //1. required - 1 item (any DT)
         // 2. optional  - start index                      //2. optional - more elements
         // returns - index (integer)                       // returns - length of new array
 
+
         //2. array left rotation (shift, push)
-        let arr1 = [1, 2, 3, 4, 5]; //[2, 3, 4, 5, 1]
-        let first = arr1[0]; 
-        for (let i = 0; i < arr1.length - 1; i++) {
-            arr1[i] = arr1[i + 1];
-        }
-        arr1[arr1.length - 1] = first;
-        // let first = arr1.shift(); 
-        // arr1.push(first); 
-        console.log("2. Left rotate:",arr1); 
+         let arr1 = [1, 2, 3, 4, 5]; //[2, 3, 4, 5, 1]
+        // let first = arr1[0]; 
+        // for (let i = 0; i < arr1.length - 1; i++) {
+        //     arr1[i] = arr1[i + 1];
+        // }
+        // arr1[arr1.length - 1] = first;
+        let first = arr1.shift();
+        arr1.push(first);
+        console.log("2. Left rotate:", arr1);
         //array.shift()  -> removes 1st element & returns it
         // required - none , optional - none
         // returns - returns 1st element (any DT)
 
+
         //3. array right rotation (unshift, pop) 
-        let arr2 = [1, 2, 3, 4, 5]; // [5, 1, 2, 3, 4]
-        let last = arr2[arr2.length - 1];
-        for (let i = arr2.length - 1; i > 0; i--) {
-            arr2[i] = arr2[i - 1];
-        }
-        arr2[0] = last;
-        // let last =arr2.pop();
-        // arr2.unshift(last);
-        console.log("3. Right rotate: ",arr2);
+         let arr2 = [1, 2, 3, 4, 5]; // [5, 1, 2, 3, 4]
+        // let last = arr2[arr2.length - 1];
+        // for (let i = arr2.length - 1; i > 0; i--) {
+        //     arr2[i] = arr2[i - 1];
+        // }
+        // arr2[0] = last;
+        let last =arr2.pop();
+        arr2.unshift(last);
+        console.log("3. Right rotate: ", arr2);
         // array.unshift(31, 23,..);                //arr.pop(); - removes last element & return it
         //required - 1 item to add (any DT)         //required - none
         //optional - more elements                  //optional - none
         // returns - new length                     // returns - last element (any DT)
 
-        //4. slice last 3 nums
-        let nums4 = [23, 12, 34, 18, 72, 20];
-        for (let i = 0; i < nums4.length; i++) {
-            for (let j = i + 1; j < nums4.length; j++) {
-                if (nums4[i] > nums4[j]) {
-                    let temp = nums4[i];
-                    nums4[i] = nums4[j];
-                    nums4[j] = temp;
-                }
-            }
-        }
-        let largestThree = [];
-        for (let i = nums4.length - 3; i < nums4.length; i++) {
-            largestThree[largestThree.length] = nums4[i]; 
-        }
-        console.log("3 Largest nums of array: ", largestThree);
-        // nums4.sort((a, b) => a-b);
-        // console.log("3 Largest nums of array: ", nums4.slice(-3));
-        // console.log("3 Smallest nums of array: ", nums4.slice(0,3));
 
-        // let b = a.slice(2,4);
+        //4. slice last 3 nums
+         let nums4 = [23, 12, 34, 18, 72, 20];
+        // for (let i = 0; i < nums4.length; i++) {
+        //     for (let j = i + 1; j < nums4.length; j++) {
+        //         if (nums4[i] > nums4[j]) {
+        //             let temp = nums4[i];
+        //             nums4[i] = nums4[j];
+        //             nums4[j] = temp;
+        //         }
+        //     }
+        // }
+        // let largestThree = [];
+        // for (let i = nums4.length - 3; i < nums4.length; i++) {
+        //     largestThree[largestThree.length] = nums4[i];
+        // }
+        // console.log("3 Largest nums of array: ", largestThree);
+        nums4.sort((a, b) => a-b);
+        console.log("4. 3 Largest nums of array: ", nums4.slice(-3));
+        console.log("5. 3 Smallest nums of array: ", nums4.slice(0,3));
+
+        let b = nums4.slice(2,4);
         // required - none
-        //optional - start index, end index (integers)
-        //returns - new sliced array (any DT)
-        
+        // optional - start index, end index (integers)
+        // returns - new sliced array (any DT)
+
+
         //5. splice for deletion
         let tasks = ['task1', 'task2', 'task5'];
         // let indexDelete = 1;
         // let count = 1;
         // let newtasks =[];
         // for(let i=0;i<tasks.length;i++) {
-            // if (i < indexDelete || i >= indexDelete + count) {
-            //     newtasks[newtasks.length] = tasks[i]; 
-            // }
+        // if (i < indexDelete || i >= indexDelete + count) {
+        //     newtasks[newtasks.length] = tasks[i]; 
+        // }
         // }
         // tasks = updatedTasks;
-        tasks.splice(1,1);
-        console.log(tasks);
+        tasks.splice(1, 1);
+        console.log("6. splice: ",tasks);
 
         // splice for insertion
-        tasks.splice(2,0,'task3','task4');     
+        tasks.splice(2, 0, 'task3', 'task4');
+        console.log("7. splice: ",tasks);
         //required - start index (integer)
         //optional - deletion count (integer), items to add (any DT)
         //returns - modified array
 
+
         //check conditions (some)
         let nums1 = [1, 3, 5, 7, 8];
         let hasEvenNum = nums1.some(num => num % 2 === 0);
-        console.log("Has any even number? ",hasEvenNum);
+        console.log("Has any even number? ", hasEvenNum);
+        //required - function(currentValue,index,array)
+        //optioanl - this value
+
         //check using every
         let nums2 = [2, 5, 8, 10];
         let allPositive = nums2.every(num => num > 0);
-        console.log("All positive? ",allPositive);
+        console.log("All positive? ", allPositive);
 
         //required - callback function : element(required), index(optional), array(optional)
         //optional - thisArg
@@ -119,4 +133,5 @@
 
     </script>
 </body>
+
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const str = "hey there";
+        String.prototype.capitalize = function () {
+            return this.charAt(0).toUpperCase() + this.slice(1);
+        }
+        console.log(str.capitalize());
+
+
+        Array.prototype.part = function (size) {
+            if (size <= 0) throw new Error("Part size must be greater than 0");
+            return this.reduce((parts, item, index) => {
+                const partIndex = Math.floor(index / size);
+                if (!parts[partIndex]) {
+                    parts[partIndex] = [];
+                }
+                parts[partIndex].push(item);
+                return parts;
+            }, []);
+        };
+
+
+        const res = [1, 2, 3, 4, 5, 6, 7].part(2);
+        console.log("The parts are ", res);
+        // Output: [[1, 2], [3, 4], [5, 6],[7]]
+
+    </script>
+</body>
+
+</html>

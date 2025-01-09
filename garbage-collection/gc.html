@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       
+           class Sample{
+            constructor(name) {
+                this.name = name;
+            }
+           }
+           const outerSample = new Sample("outerSample");
+           const outerVar = "outerVar";
+           {
+            const innerSample = new Sample("innerSample");
+            const innerVar = "innerVar";
+            debugger;
+            console.log(innerVar);
+            console.log(innerSample.name);
+           }
+
+        // let globalCycle;
+
+        // function createCycle() {
+        //     const objA = { name: "ObjA" };
+        //     const objB = { name: "ObjB" };
+
+        //     objA.reference = objB;
+        //     objB.reference = objA;
+
+        //     globalCycle = objA;
+        // }
+
+        // createCycle();
+        // //globalCycle =null;
+        // console.clear();
+
+    </script>
+</body>
+
+</html>

@@ -70,6 +70,8 @@ button {
 }
 
 button {
+  width: 50%;
+  margin-left: 150px;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;

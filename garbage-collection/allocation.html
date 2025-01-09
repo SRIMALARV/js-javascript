@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const n = 123; // allocates memory for a number
+        const str = "abcd"; // allocates memory for a string
+
+        const obj = {
+            a: 1,
+            b: "hey",
+        }; // allocates memory for an object and contained values
+
+        // (like object) allocates memory for the array and contained values
+        const a = [1, null, "str2"];
+
+        function f(a) {
+            return a + 2;
+        } // allocates a function (callable object)
+
+        // function expressions also allocate an object
+        sample.addEventListener("click", () => {
+            someElement.style.backgroundColor = "blue";
+        });
+
+        //Allocation via function calls----------
+
+        const d = new Date(); // allocates a Date object
+
+        const str1 = "string";
+        const str22 = str1.substr(0, 3); // s2 is a new string
+    </script>
+</body>
+
+</html>

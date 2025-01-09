@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fetchData(callback) {
+            console.log("Fetching data...");
+
+            setTimeout(() => {
+                console.log("Data fetched!");
+                callback(); 
+            }, 5000);
+        }
+
+        function processData() {
+            console.log("Processing the fetched data...");
+        }
+        function a() {
+            console.log("Function A");
+        }
+        //function call
+        fetchData(processData);
+        a();
+
+        // function step1(callback) {
+        //     console.log("Step 1: Starting...");
+        //     setTimeout(() => {
+        //         console.log("Step 1: Completed.");
+        //         callback();
+        //     }, 1000);
+        // }
+
+        // function step2(callback) {
+        //     console.log("Step 2: Starting...");
+        //     setTimeout(() => {
+        //         console.log("Step 2: Completed.");
+        //         callback();
+        //     }, 2000);
+        // }
+
+        // function step3() {
+        //     console.log("Step 3: Starting...");
+        //     setTimeout(() => {
+        //         console.log("Step 3: Completed.");
+        //     }, 1000);
+        // }
+
+        // step1(() => {
+        //     step2(() => {
+        //         step3();
+        //     });
+        // });
+
+    </script>
+</body>
+
+</html>

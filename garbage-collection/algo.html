@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //REFERENCE COUNTING GARBAGE ALGO - discards if an object has no more reference
+        let obj1 = {
+            obj2: {
+                abc: 2,
+            }
+        };
+
+        let dummy1 = obj1;
+
+        obj1 = 1;  // only dummy1 has reference now
+
+        let dummy2 = dummy1.obj2;  // obj2 has 2 references now.
+
+        dummy1 = "dummystring";  // obj1 has no refernce now, but obj2 is refering it still, so cant be freed
+
+        dummy2 = null;
+        //now the object can be garbage collected
+
+
+
+        function circle() {
+            const x = {};
+            const y = {};
+            x.a = y;
+            y.a = x;
+            //circular references
+        }
+        circle();
+
+        //MARK & SWEEP ALGO - until its reachable
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [];
+        console.log(Array.prototype.every);
+        // Array.prototype.avg = function (callback, myArray) {
+        //     console.log(this);
+        //     console.log(callback);
+        //     return 3;
+        // }
+        Array.prototype.avg = function () {
+            //const sum1 = this.reduce((acm, crnt) => acm + crnt, 0);
+            const sum1 = this.sum();
+            return sum1 / this.length;
+        };
+        Array.prototype.sum = function () {
+            let sum = 0;
+            for (let i = 0; i < this.length; i++) {
+                sum = sum + this[i];
+            }
+            return sum;
+        }
+        if (!Array.prototype.count) {
+            Array.prototype.count = function (value) {
+                return this.reduce((acc, curr) => acc + (curr === value ? 1 : 0), 0);
+            };
+        }
+
+        const arr1 = [2, 3, 4, 3, 5, 6];
+        console.log(arr1.avg());
+        console.log(arr1.count(3));
+    </script>
+</body>
+
+</html>
