@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px; /* Add padding for a better layout */
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+nav {
+  background-color: #555;
+  color: white;
+  padding: 1em 0;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 16px; /* Adjust font size for better visibility */
+  transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #f0f0f0; /* Lighter color on hover */
+}
+
+#app {
+  margin: 2em auto;
+  padding: 2em; /* Increased padding for better spacing */
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a raised look */
+}
+
+h2, h1 {
+  margin-bottom: 1em;
+  color: #333; /* Ensure headings have a slightly darker text */
+}
+
+div {
+  margin-bottom: 1em; /* Add margin to make the layout cleaner */
+}
+
+@media (max-width: 600px) {
+  #app {
+    padding: 1.5em;
+  }
+
+  nav {
+    font-size: 14px; /* Smaller font for navigation links */
+  }
+
+  nav a {
+    margin: 0 5px; /* Adjust link spacing on small screens */
+  }
+}
