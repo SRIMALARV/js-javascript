@@ -9,6 +9,5 @@ export default function () {
 
   container.appendChild(heading);
   container.appendChild(paragraph);
-
   return container;
 }

@@ -14,11 +14,10 @@ export const pubsub = {
         pubsub.events[event].splice(index, 1);
       }
     },
-  
     publish: (event, data) => {
       if (pubsub.events[event]) {
         pubsub.events[event].forEach(callback => callback(data));
-      }
+      } 
     }
   };
   
