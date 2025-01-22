@@ -1,4 +1,4 @@
-import { pubsub, marks } from './pubsub.js';
+import { pubsub, marks, resetMarks } from './pubsub.js';
 
 const renderHome = (app, navigate) => {
   const homeHeading = document.createElement("h1");
@@ -18,7 +18,7 @@ const renderHome = (app, navigate) => {
     const input = document.createElement("input");
     input.setAttribute("type", "number");
     input.setAttribute("id", `mark${index}`);
-    input.setAttribute("value", mark);
+    input.setAttribute("value", mark); 
     input.setAttribute("min", "0");
     input.setAttribute("max", "100");
 
@@ -43,7 +43,7 @@ const renderHome = (app, navigate) => {
 
     pubsub.publish("marksUpdated", { marks: updatedMarks });
 
-    navigate('/about');
+    navigate("/about");
   });
 
   app.appendChild(homeHeading);
@@ -51,4 +51,3 @@ const renderHome = (app, navigate) => {
 };
 
 export { renderHome };
-

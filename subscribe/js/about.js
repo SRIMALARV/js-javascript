@@ -1,4 +1,3 @@
-
 import { pubsub, marks } from './pubsub.js';
 
 const renderAbout = (app) => {
@@ -14,8 +13,9 @@ const renderAbout = (app) => {
   app.appendChild(aboutHeading);
   app.appendChild(stats);
 };
+
 pubsub.subscribe("marksUpdated", (data) => {
-  marks.length = 0; 
+  marks.length = 0;
   marks.push(...data.marks); 
 });
 

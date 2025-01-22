@@ -1,4 +1,4 @@
-import { pubsub } from './pubsub.js';
+import { pubsub, resetMarks } from './pubsub.js';
 import { renderHome } from './home.js';
 import { renderAbout } from './about.js';
 
@@ -15,21 +15,22 @@ const router = () => {
   app.innerHTML = ""; 
 
   if (currentSubscription) {
-    pubsub.unsubscribe(currentSubscription);
+    pubsub.unsubscribe(currentSubscription); 
     currentSubscription = null;
   }
 
   if (routes[path]) {
     const pageRenderFunction = routes[path];
-    pageRenderFunction(app, navigate);
 
     if (path === "/about") {
       currentSubscription = pubsub.subscribe("marksUpdated", updateAboutPage);
-    } else if (path === "/") {
+    }
+    else if (path === "/") {
+      resetMarks(); 
       currentSubscription = pubsub.subscribe("marksUpdated", updateHomePage);
     }
 
-    pubsub.publish("routeChange", { path, content: app });
+    pageRenderFunction(app, navigate); 
   } else {
     showNotFound(app); 
   }
@@ -47,7 +48,7 @@ const showNotFound = (app) => {
 };
 
 const navigate = (url) => {
-  window.history.pushState(null, "", url); 
+  window.history.pushState(null, "", url);
   router();
 };
 
@@ -56,7 +57,7 @@ const updateHomePage = (data) => {
   if (form) {
     const inputs = form.querySelectorAll("input");
     inputs.forEach((input, index) => {
-      input.value = data.marks[index]; 
+      input.value = data.marks[index];
     });
   }
 };
@@ -74,7 +75,7 @@ const updateAboutPage = (data) => {
 document.addEventListener("click", (e) => {
   if (e.target.matches("[data-link]")) {
     e.preventDefault();
-    navigate(e.target.getAttribute("href")); 
+    navigate(e.target.getAttribute("href"));
   }
 });
 
